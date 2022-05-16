@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>CREATE DUMMY</div>
+        <hr>
+        <form action="/newdata" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>Tanggal</td>
+                    <td><input type="date" name="tanggal"></td>
+                </tr><!-- comment -->
+                <tr>
+                    <td>Gambar</td><!-- comment -->
+                         <td><input type="file" name="gambar"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="submit">Submit</td>
+                    <!-- comment -->
+                </tr>
+<!--                <tr th:each="godummy:${goDummy}">
+                    <td th:text="${godummy.id}"></td> comment 
+                    <td th:text="${calendars.format(godummy.tanggal,'dd-MMM-yyyy')}"></td> comment 
+                    <td th:text="${godummy.gambar}"></td> comment 
+                                          <td>
+                                              <a href="/detil">Detail</a>
+                                              <a href="/edit">Edit</a> comment 
+                                              <a href="/delete">Delete</a>
+                                          </td>
+                </tr>-->
+            </table>
+        </form>
+
+    </body>
+</html>
