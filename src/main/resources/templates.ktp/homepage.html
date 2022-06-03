@@ -23,11 +23,8 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                     <li class="nav-item active">
-                        <a class="nav-link" href="home">Tambah <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="ktpList">List <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.blade.php">Home <span class="sr-only">(current)</span></a>
                     </li>
 
                 </ul>
@@ -36,37 +33,34 @@
 
             </div>
         </nav>
-
-<div class="row justify-content-center">
-    <div class="col-auto">
+        
+        
         <div class="card-body">
-            <h3 class="text-center">Tambah Data KTP</h3>
-            <hr>
-            <form action="ktp_newdata" method="post" enctype="multipart/form-data">
-                <table class="table">
-                    <tr>
-                        <td>Nama</td>
-                        <td><input type="text" name="nama"></td>
-                    </tr><!-- comment -->
-                    <tr>
-                        <td>Tanggal</td>
-                        <td><input type="date" name="tanggal"></td>
-                    </tr><!-- comment -->
-                    <tr>
-                        <td>Gambar</td><!-- comment -->
-                        <td><input type="file" name="foto" accept="image/jpeg"></td>
-                    </tr>
-                </table>
-                <div class="modal-footer">
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                        <div>CREATE DUMMY</div>
+                        <hr>
+                        <form action="/ktp_newdata" method="post" enctype="multipart/form-data">
+                            <table>
+                                 <tr>
+                                    <td>Nama</td>
+                                    <td><input type="text" name="nama"></td>
+                                </tr><!-- comment -->
+                                <tr>
+                                    <td>Tanggal</td>
+                                    <td><input type="date" name="tanggal"></td>
+                                </tr><!-- comment -->
+                                <tr>
+                                    <td>Gambar</td><!-- comment -->
+                                     <td><input type="file" name="foto"></td>
+                                </tr>
+                            </table>
+                            <div class="modal-footer">
+                              
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
-            </form>
-            
         
         </div>
-    </div><!doctype html>
-            </div>
+
 
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pae.umy.projectktp2.coba;
+package pae.umy.projectktp2.dataktp;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,35 +13,33 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import pae.umy.projectktp2.coba.exceptions.NonexistentEntityException;
+import pae.umy.projectktp2.dataktp.exceptions.NonexistentEntityException;
 
 /**
  *
  * @author Asus
  */
-public class DummyJpaController implements Serializable {
+public class DataKtpJpaController implements Serializable {
 
-    public DummyJpaController(EntityManagerFactory emf) {
+    public DataKtpJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-   
-     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("pae.umy_projectktp2_jar_0.0.1-SNAPSHOTPU");
- public DummyJpaController() {
+      private EntityManagerFactory emf = Persistence.createEntityManagerFactory("pae.umy_projectktp2_jar_0.0.1-SNAPSHOTPU");
+
+    public DataKtpJpaController() {
     }
+
+      
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-   
-
-    
-    
-    public void create(Dummy dummy) {
+    public void create(DataKtp dataKtp) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(dummy);
+            em.persist(dataKtp);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -50,19 +48,19 @@ public class DummyJpaController implements Serializable {
         }
     }
 
-    public void edit(Dummy dummy) throws NonexistentEntityException, Exception {
+    public void edit(DataKtp dataKtp) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            dummy = em.merge(dummy);
+            dataKtp = em.merge(dataKtp);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = dummy.getId();
-                if (findDummy(id) == null) {
-                    throw new NonexistentEntityException("The dummy with id " + id + " no longer exists.");
+                Integer id = dataKtp.getId();
+                if (findDataKtp(id) == null) {
+                    throw new NonexistentEntityException("The dataKtp with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -78,14 +76,14 @@ public class DummyJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Dummy dummy;
+            DataKtp dataKtp;
             try {
-                dummy = em.getReference(Dummy.class, id);
-                dummy.getId();
+                dataKtp = em.getReference(DataKtp.class, id);
+                dataKtp.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The dummy with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The dataKtp with id " + id + " no longer exists.", enfe);
             }
-            em.remove(dummy);
+            em.remove(dataKtp);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -94,19 +92,19 @@ public class DummyJpaController implements Serializable {
         }
     }
 
-    public List<Dummy> findDummyEntities() {
-        return findDummyEntities(true, -1, -1);
+    public List<DataKtp> findDataKtpEntities() {
+        return findDataKtpEntities(true, -1, -1);
     }
 
-    public List<Dummy> findDummyEntities(int maxResults, int firstResult) {
-        return findDummyEntities(false, maxResults, firstResult);
+    public List<DataKtp> findDataKtpEntities(int maxResults, int firstResult) {
+        return findDataKtpEntities(false, maxResults, firstResult);
     }
 
-    private List<Dummy> findDummyEntities(boolean all, int maxResults, int firstResult) {
+    private List<DataKtp> findDataKtpEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Dummy.class));
+            cq.select(cq.from(DataKtp.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -118,20 +116,20 @@ public class DummyJpaController implements Serializable {
         }
     }
 
-    public Dummy findDummy(Integer id) {
+    public DataKtp findDataKtp(Integer id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Dummy.class, id);
+            return em.find(DataKtp.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getDummyCount() {
+    public int getDataKtpCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Dummy> rt = cq.from(Dummy.class);
+            Root<DataKtp> rt = cq.from(DataKtp.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

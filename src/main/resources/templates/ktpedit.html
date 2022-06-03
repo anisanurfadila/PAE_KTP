@@ -3,7 +3,7 @@
 <html>
 
     <head>
-        <title>DATA KTP
+        <title>DATA KTP Edit
         </title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
@@ -23,11 +23,8 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                     <li class="nav-item active">
-                        <a class="nav-link" href="home">Tambah <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="ktpList">List <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.blade.php">Home <span class="sr-only">(current)</span></a>
                     </li>
 
                 </ul>
@@ -36,39 +33,56 @@
 
             </div>
         </nav>
+        
 
-<div class="row justify-content-center">
-    <div class="col-auto">
-        <div class="card-body">
-            <h3 class="text-center">Tambah Data KTP</h3>
-            <hr>
-            <form action="ktp_newdata" method="post" enctype="multipart/form-data">
-                <table class="table">
-                    <tr>
+        
+        
+        
+        <div class="container">
+
+            <div class="row">
+
+
+                <table>
+
+                    <tr  th:each="dataKtp2 : ${dataKtp2}">
                         <td>Nama</td>
-                        <td><input type="text" name="nama"></td>
-                    </tr><!-- comment -->
+                        <td><input type="text" name="nama" placeholder="Nama Tamu" th:value="${dataKtp2.nama}"></td>
+                    </tr>
                     <tr>
                         <td>Tanggal</td>
-                        <td><input type="date" name="tanggal"></td>
-                    </tr><!-- comment -->
-                    <tr>
-                        <td>Gambar</td><!-- comment -->
-                        <td><input type="file" name="foto" accept="image/jpeg"></td>
+                        <td><input type="date" name="tanggal" placeholder="Nama Tamu"></td>
                     </tr>
-                </table>
-                <div class="modal-footer">
+                    <tr>
+                        <td>Gambar</td>
+                        <td><input type="file" name="foto" placeholder="Nama Tamu"></td>
+                    </tr>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-            </form>
-            
-        
-        </div>
-    </div><!doctype html>
+                </table>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-warning">Update</button>
+                </div>
+
+
+
+
             </div>
 
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+        </div>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </body>

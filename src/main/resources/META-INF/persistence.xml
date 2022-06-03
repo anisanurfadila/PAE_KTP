@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>pae.umy.projectktp2.Data</class>
     <class>pae.umy.projectktp2.coba.Dummy</class>
+    <class>pae.umy.projectktp2.dataktp.DataKtp</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dataktp?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
